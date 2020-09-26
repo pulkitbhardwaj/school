@@ -1,0 +1,69 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input ChangePasswordInput {
+  password: String!
+  token: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DeleteUserInput {
+  id: ID!
+}
+
+type Mutation {
+  changePassword(options: ChangePasswordInput!): Boolean!
+  deleteUser(user: DeleteUserInput!): Boolean!
+  forgotPassword(email: String!): Boolean!
+  signinUser(user: SignInUserInput!): User
+  signupUser(user: SignUpUserInput!): User
+  updateUser(user: UpdateUserInput!): User
+}
+
+type Query {
+  allUsers: [User!]
+  me: User
+  user(id: Float!): User
+}
+
+input SignInUserInput {
+  email: String!
+  password: String!
+}
+
+input SignUpUserInput {
+  age: Float
+  born: DateTime
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  username: String!
+}
+
+input UpdateUserInput {
+  age: Float
+  born: DateTime
+  email: String
+  firstName: String
+  id: ID!
+  lastName: String
+  username: String
+}
+
+type User {
+  age: Float
+  born: DateTime
+  createdAt: DateTime!
+  email: String!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  updatedAt: DateTime!
+  username: String!
+}
